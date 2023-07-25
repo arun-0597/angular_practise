@@ -7,4 +7,5 @@ import { Component } from '@angular/core';
 })
 export class AppComponent {
   title = 'practise';
+  background_image = 'pix/background_img.jpg';
 }
