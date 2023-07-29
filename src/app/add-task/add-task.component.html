@@ -2,8 +2,21 @@
     <div class="col-3"></div>
     <div class="col-6 p-3">
         <div class="row">
-            <div class="col-12 text-center">
-                <h5 class="alert alert-info">Add Task</h5>
+            <div class="col-12">
+                <div class="alert alert-info">
+                    <div class="row align-items-center">
+                        <div class="col-9">
+                            <span>Add Task</span>
+                        </div>
+                        <div class="col-3">
+                            <a routerLink="">
+                                <button type="button" class="btn btn-info text-right">
+                                    Show Task
+                                </button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         <div class="row">
@@ -11,7 +24,7 @@
                 Task Title
             </div>
             <div class="col-9">
-                <input type="text" class="form-control">
+                <input type="text" class="form-control" #taskname>
             </div>
         </div>
         <div class="row mt-3">
@@ -19,16 +32,14 @@
                 current status
             </div>
             <div class="col-9">
-                <select>
-                    <option value=""></option>
-                    <option value=""></option>
-                    <option value=""></option>
+                <select #statusval >
+                    <option *ngFor="let sta of status" value="{{sta.value}}">{{sta.string}}</option>
                 </select>
             </div>
         </div>
         <div class="row mt-3">
             <div class="col-12 text-end">
-                <button type="button" class="btn btn-primary">
+                <button type="submit" class="btn btn-primary" (click) = 'submit_task(taskname.value, statusval.value)'>
                     submit
                 </button>
             </div>

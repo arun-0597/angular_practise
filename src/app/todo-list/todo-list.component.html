@@ -42,7 +42,7 @@
                 </span>
             </div>
             <div class="col-3">
-                <select (change) = "savethevalue($event, todolist.id)">
+                <select (change) = "todo_savethevalue($event, todolist.id)">
                     <option *ngFor="let sta of status"
                     [attr.selected]="todolist.completion_status == sta.value ? true : null"  value={{sta.value}} >
                         {{sta.string}}
@@ -50,7 +50,7 @@
                 </select>
             </div>
             <div class="col-1">
-                <button type="submit" (click) = "deletetask(todolist.id)">
+                <button type="submit" (click) = "todo_deletetask(todolist.id)">
                     <i class="fa fa-trash" aria-hidden="true"></i>
                 </button>
             </div>

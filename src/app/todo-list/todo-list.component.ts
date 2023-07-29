@@ -1,4 +1,5 @@
 import { Component } from '@angular/core';
+import { CustomserviceService } from '../customservice.service';
 
 @Component({
   selector: 'app-todo-list',
@@ -8,53 +9,18 @@ import { Component } from '@angular/core';
 export class TodoListComponent {
   title = 'To Do LIst';
   background_image = 'pix/background_img.jpg';
+  constructor(private CustomserviceService: CustomserviceService) {}
 
-  status: any[] = [
-    {
-      'string': 'Not Started',
-      'value': 'notstarted'
-    },
-    {
-      'string': 'In Progress',
-      'value': 'inprogress'
-    },
-    {
-      'string': 'Completed',
-      'value': 'completed'
-    }
-  ];
 
-  todolistarray: any[] = [
-    {
-      id: 1,
-      tasks: 'complete project A',
-      completion_status: 'notstarted'
-    },
-    {
-      id: 2,
-      tasks: 'complete project B',
-      completion_status: 'inprogress'
-    },
-    {
-      id: 3,
-      tasks: 'complete project C',
-      completion_status: 'notstarted'
-    },
-    {
-      id: 4,
-      tasks: 'complete project D',
-      completion_status: 'completed'
-    },
-  ];
-
-  savethevalue(e:any, project: number) {
-    let index: number = project - 1;
-    this.todolistarray[index].completion_status = e.target.value;
+  status: any[] = this.CustomserviceService.status;
+  todolistarray: any[] = this.CustomserviceService.todolistarray;
+  // console.log(this.CustomserviceService);
+  todo_savethevalue(data1: any, data2: any) {
+    this.CustomserviceService.savethevalue(data1, data2);
   }
 
-  deletetask(taskid: number) {
-    let index: number = taskid - 1;
-    var hello = this.todolistarray.findIndex( (item) => item.id === taskid);
-    this.todolistarray.splice(hello, 1);
+  todo_deletetask(taskid: number) {
+    this.CustomserviceService.deletetask(taskid);
   }
+
 }
