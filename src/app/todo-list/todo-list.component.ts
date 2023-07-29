@@ -14,7 +14,6 @@ export class TodoListComponent {
 
   status: any[] = this.CustomserviceService.status;
   todolistarray: any[] = this.CustomserviceService.todolistarray;
-  // console.log(this.CustomserviceService);
   todo_savethevalue(data1: any, data2: any) {
     this.CustomserviceService.savethevalue(data1, data2);
   }

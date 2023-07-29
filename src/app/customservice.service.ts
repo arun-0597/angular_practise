@@ -47,7 +47,6 @@ export class CustomserviceService {
 
   initaialTotalValue = this.todolistarray.length;
   addtask(taskname:string, status: string) {
-    console.log(this.initaialTotalValue);
     this.initaialTotalValue++;
     var addval = {
       id: this.initaialTotalValue,
