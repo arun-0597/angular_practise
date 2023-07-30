@@ -1,4 +1,4 @@
-import { Component } from '@angular/core';
+import { Component, Input, Output, EventEmitter } from '@angular/core';
 import { CustomserviceService } from '../customservice.service';
 
 @Component({
@@ -9,8 +9,13 @@ import { CustomserviceService } from '../customservice.service';
 export class TodoListComponent {
   title = 'To Do LIst';
   background_image = 'pix/background_img.jpg';
+  new_var = 'hello world';
+  arun = 1;
   constructor(private CustomserviceService: CustomserviceService) {}
 
+  @Input() bgimg: string = '';
+
+  @Output() messageEvent = new EventEmitter<number>();
 
   status: any[] = this.CustomserviceService.status;
   todolistarray: any[] = this.CustomserviceService.todolistarray;
@@ -20,6 +25,7 @@ export class TodoListComponent {
 
   todo_deletetask(taskid: number) {
     this.CustomserviceService.deletetask(taskid);
+    this.messageEvent.emit(taskid);
   }
 
 }

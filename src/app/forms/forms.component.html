@@ -1,0 +1,44 @@
+<div class="text-center">
+    <h2>
+        Posh Form
+    </h2>
+    <div>
+        <div class="mb-3">
+            <input type="text" placeholder="post Title" [(ngModel)]="posttitle" />
+        </div>
+
+        <div class="mb-3">
+            <textarea placeholder="Post Details" [(ngModel)]="postdetail">
+
+            </textarea>
+        </div>
+
+        <div class="mb-3">
+            <input type="text" placeholder="post image url" [(ngModel)]="imgUrl" />
+        </div>
+
+        <div class="mb-3">
+            <input type="text" placeholder="post url" [(ngModel)]="postUrl"  />
+        </div>
+
+        <div class="mb-3">
+            <input type="checkbox" [(ngModel)]="titleBackground"> Add Background
+        </div>
+    </div>
+
+    <div class="mt-4 text-center">
+
+        <p [class.bg-info]="titleBackground? true: false">{{posttitle}}</p>
+
+        <p>{{postdetail}}</p>
+
+        <img
+            [src]="imgUrl? imgUrl : ''"
+            [style.display] = "imgUrl? 'block': 'none'"
+            height="200px" width="300px"
+        />
+
+        <a href="{{postUrl}}" [style.display] = "postUrl? 'block' : 'none'" >click here</a>
+
+    </div>
+</div>
